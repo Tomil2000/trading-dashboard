@@ -61,6 +61,12 @@
     .divider { height:1px; background:#334155; margin:20px 0; }
     @media(max-width:700px) { .two-col { grid-template-columns:1fr; } }
   </style>
+  <script>
+    // Auto-reload every 5 minutes, bypassing cache
+    setTimeout(function() {
+      location.reload(true);
+    }, 5 * 60 * 1000);
+  </script>
 </head>
 <body>
 
@@ -68,7 +74,7 @@
   <div>
     <h1>Trading Dashboard</h1>
     <div class="header-meta">
-      <div class="updated"><span class="live-dot"></span>Last updated: Friday 10 Apr 2026 at 11:33 AM ET &nbsp;·&nbsp; 15:33 UTC</div>
+      <div class="updated"><span class="live-dot"></span>Last updated: 17:04 BST &nbsp;·&nbsp; Friday 10 Apr 2026 at 12:04 PM ET</div>
       <div class="market-status" style="color:#4ade80;border-color:#4ade80;background:#4ade8018">&#x25CF; US Market: OPEN</div>
     </div>
   </div>
@@ -78,23 +84,28 @@
 <div class="summary-grid">
   <div class="summary-card">
     <div class="label">Total Portfolio Value</div>
-    <div class="value">$99,930.22</div>
-    <div class="sub" style="color:#f87171">$-69.78 (-0.07%) all-time</div>
+    <div class="value">$99,878.88</div>
+    <div class="sub" style="color:#f87171">$-121.12 (-0.12%) all-time</div>
   </div>
   <div class="summary-card">
     <div class="label">Congress Account P&amp;L</div>
-    <div class="value" style="color:#f87171">$-44.76</div>
-    <div class="sub" style="color:#f87171">-0.09% vs $50k start &nbsp;·&nbsp; $20,063.62 cash free</div>
+    <div class="value" style="color:#f87171">$-71.10</div>
+    <div class="sub" style="color:#f87171">-0.14% vs $50k start &nbsp;·&nbsp; $20,063.62 cash free</div>
   </div>
   <div class="summary-card">
     <div class="label">Wheel Account P&amp;L</div>
-    <div class="value" style="color:#f87171">$-25.02</div>
-    <div class="sub" style="color:#f87171">-0.05% vs $50k start &nbsp;·&nbsp; $50,289.98 cash free</div>
+    <div class="value" style="color:#f87171">$-50.02</div>
+    <div class="sub" style="color:#f87171">-0.10% vs $50k start &nbsp;·&nbsp; $50,289.98 cash free</div>
   </div>
   <div class="summary-card">
     <div class="label">Rent Collected (Wheel)</div>
     <div class="value" style="color:#4ade80">$0.00</div>
     <div class="sub">0 full wheel cycles completed</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Wild West P&amp;L (£500 pot)</div>
+    <div class="value" style="color:#4ade80">+$0.00</div>
+    <div class="sub" style="color:#4ade80">+0.00% &nbsp;·&nbsp; 0 trades total</div>
   </div>
 </div>
 
@@ -116,7 +127,7 @@
         <div class="info-box">
           <div class="info-label">Following</div>
           <div class="info-value" style="font-size:1rem">Ro Khanna</div>
-          <div class="info-sub" style="margin-top:6px">8 trades detected &nbsp;·&nbsp; Holding: BMO, GOOGL, WFC</div>
+          <div class="info-sub" style="margin-top:6px">9 trades detected &nbsp;·&nbsp; Holding: BMO, GOOGL, WFC</div>
         </div>
         <div class="info-box">
           <div class="info-label">Following</div>
@@ -129,7 +140,7 @@
   <div class="info-grid" style="margin-bottom:20px">
     <div class="info-box">
       <div class="info-label">Unrealised P&amp;L on Open Positions</div>
-      <div class="info-value" style="color:#f87171">$-44.76</div>
+      <div class="info-value" style="color:#f87171">$-71.10</div>
       <div class="info-sub">Across 4 open positions</div>
     </div>
     <div class="info-box">
@@ -139,7 +150,7 @@
     </div>
     <div class="info-box">
       <div class="info-label">Congress Signals Tracked</div>
-      <div class="info-value">8</div>
+      <div class="info-value">9</div>
       <div class="info-sub">Total disclosures detected since launch</div>
     </div>
   </div>
@@ -154,32 +165,32 @@
               <td><strong>BMO</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
               <td>69 shares</td>
               <td>$143.94</td>
-              <td>$143.95</td>
-              <td style="color:#4ade80">+$0.69</td>
+              <td>$143.94</td>
+              <td style="color:#4ade80">+$0.26</td>
               <td style="color:#4ade80">+0.0%</td>
             </tr>
             <tr>
               <td><strong>GOOGL</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
               <td>31 shares</td>
               <td>$319.66</td>
-              <td>$318.34</td>
-              <td style="color:#f87171">$-41.06</td>
-              <td style="color:#f87171">-0.4%</td>
+              <td>$317.50</td>
+              <td style="color:#f87171">$-67.10</td>
+              <td style="color:#f87171">-0.7%</td>
             </tr>
             <tr>
               <td><strong>RYCEY</strong><br><span style="font-size:0.75rem;color:#64748b"></span></td>
               <td>10 shares</td>
               <td>$17.32</td>
-              <td>$17.12</td>
-              <td style="color:#f87171">$-1.95</td>
-              <td style="color:#f87171">-1.1%</td>
+              <td>$17.15</td>
+              <td style="color:#f87171">$-1.70</td>
+              <td style="color:#f87171">-1.0%</td>
             </tr>
             <tr>
               <td><strong>WFC</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
               <td>116 shares</td>
               <td>$85.53</td>
               <td>$85.51</td>
-              <td style="color:#f87171">$-2.44</td>
+              <td style="color:#f87171">$-2.56</td>
               <td style="color:#f87171">-0.0%</td>
             </tr></tbody>
       </table>
@@ -319,6 +330,13 @@
               <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
+              <td><strong>KEY</strong></td>
+              <td>Ro Khanna</td>
+              <td style="color:#4ade80">BUY</td>
+              <td>2026-03-12</td>
+              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
+            </tr>
+            <tr>
               <td><strong>GOOGL</strong></td>
               <td>Ro Khanna</td>
               <td style="color:#4ade80">BUY</td>
@@ -402,8 +420,8 @@
               <td><strong style="font-size:0.8rem">TSLA260424P00310000</strong><br><span style="font-size:0.75rem;color:#64748b">Open option contract</span></td>
               <td>-1 contract(s)</td>
               <td>$2.90</td>
-              <td>$3.15</td>
-              <td style="color:#f87171">$-25.00</td>
+              <td>$3.40</td>
+              <td style="color:#f87171">$-50.00</td>
             </tr></tbody>
   </table>
 
@@ -416,6 +434,62 @@
     <strong>Stage 2 (Selling Calls) —</strong> Now we own Tesla shares. We say: "I'll sell my shares at a higher price — but pay me a fee to lock that in."
     Again, we collect the fee. If Tesla rises above that price, we sell the shares at a profit. If it doesn't, we keep the fee and do it again.<br><br>
     <strong>The result:</strong> We collect income every 2–4 weeks regardless of direction. The only real risk is if Tesla drops severely and stays down for a long time.
+  </div>
+</div>
+
+<!-- STRATEGY 3: WILD WEST -->
+<div class="section">
+  <div class="section-header">
+    <div>
+      <h2>Strategy 3 — Wild West Penny Trader
+        <span class="sub"> &nbsp;·&nbsp; Day trading exchange-listed stocks $0.50–$5.00 · £500 pot</span>
+      </h2>
+    </div>
+    <span class="badge badge-yellow">&#x25CF; Active — in &amp; out same day</span>
+  </div>
+
+  <!-- Stats row -->
+  <div class="info-grid" style="margin-bottom:20px">
+    <div class="info-box">
+      <div class="info-label">All-Time P&amp;L</div>
+      <div class="info-value" style="color:#4ade80">+$0.00</div>
+      <div class="info-sub">+0.00% on £500 pot &nbsp;·&nbsp; 0 total trades</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Today's P&amp;L</div>
+      <div class="info-value" style="color:#4ade80">+$0.00</div>
+      <div class="info-sub">0 trades entered today</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Open Positions</div>
+      <div class="info-value">0 / 3</div>
+      <div class="info-sub">Max 3 at once &nbsp;·&nbsp; All closed by 3:45 PM ET</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Budget Cap</div>
+      <div class="info-value">$500</div>
+      <div class="info-sub">Hard limit — mirrors your real £500 fund</div>
+    </div>
+  </div>
+
+  <!-- Open positions -->
+  <h3>Today's Open Positions</h3>
+  <table style="margin-bottom:20px">
+    <thead><tr><th>Stock</th><th>Shares</th><th>Entry</th><th>Now</th><th>P&amp;L $</th><th>P&amp;L %</th><th>Stop</th><th>Target</th></tr></thead>
+    <tbody>
+      <tr><td colspan="8" style="text-align:center;color:#64748b;padding:20px">No open positions — watching for opportunities</td></tr>
+    </tbody>
+  </table>
+
+  <div class="explainer">
+    <strong>How this works in plain English:</strong>
+    Every morning between 9:30–11:00 AM, the bot scans for cheap stocks (50p–$5) that are spiking in volume and already moving upward on the day.
+    It buys up to 3 of them, spending roughly equal chunks of the £500 pot on each.<br><br>
+    Each trade has two automatic exits already set the moment it buys:
+    <strong>Stop loss at -8%</strong> (cuts the loss if it goes wrong) and <strong>take profit at +20%</strong> (locks in the gain if it rockets).
+    Whatever happens, everything is sold by 3:45 PM — <strong>no positions are ever held overnight.</strong><br><br>
+    This is the highest-risk strategy of the three. Penny stocks can move 30–50% in a day — in either direction.
+    The bot is designed to catch the winners quickly and bail on the losers fast.
   </div>
 </div>
 

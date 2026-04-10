@@ -12,10 +12,13 @@
       color: #e2e8f0;
       min-height: 100vh;
       padding: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     h1 { font-size: 1.6rem; font-weight: 700; color: #f1f5f9; }
-    h2 { font-size: 1.1rem; font-weight: 600; color: #cbd5e1; margin-bottom: 16px; }
-    h3 { font-size: 0.9rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    h2 { font-size: 1.1rem; font-weight: 600; color: #cbd5e1; margin-bottom: 4px; }
+    h2 .sub { font-size:0.82rem; font-weight:400; color:#64748b; }
+    h3 { font-size: 0.85rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
     .header { display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; flex-wrap:wrap; gap:12px; }
     .updated { font-size: 0.8rem; color: #64748b; }
     .live-dot { display:inline-block; width:8px; height:8px; background:#4ade80; border-radius:50%; margin-right:6px; animation: pulse 2s infinite; }
@@ -31,22 +34,29 @@
     .summary-card .value { font-size:1.6rem; font-weight:700; }
     .summary-card .sub { font-size:0.85rem; margin-top:4px; }
     .section { background:#1e293b; border-radius:12px; padding:24px; margin-bottom:20px; border:1px solid #334155; }
-    .section-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:8px; }
-    .badge { font-size:0.72rem; padding:3px 10px; border-radius:999px; font-weight:600; }
-    .badge-green { background:#052e16; color:#4ade80; border:1px solid #166534; }
-    .badge-blue  { background:#0c1a2e; color:#60a5fa; border:1px solid #1d4ed8; }
-    .badge-yellow{ background:#1c1400; color:#fbbf24; border:1px solid #92400e; }
+    .section-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px; flex-wrap:wrap; gap:8px; }
+    .badge { font-size:0.72rem; padding:4px 12px; border-radius:999px; font-weight:600; white-space:nowrap; }
+    .badge-green  { background:#052e16; color:#4ade80; border:1px solid #166534; }
+    .badge-blue   { background:#0c1a2e; color:#60a5fa; border:1px solid #1d4ed8; }
+    .badge-purple { background:#1a0c2e; color:#c084fc; border:1px solid #7e22ce; }
     table { width:100%; border-collapse:collapse; }
-    th { text-align:left; font-size:0.75rem; color:#64748b; text-transform:uppercase; letter-spacing:0.04em; padding:8px 12px; border-bottom:1px solid #334155; }
-    td { padding:12px 12px; border-bottom:1px solid #1e293b; font-size:0.9rem; }
+    th { text-align:left; font-size:0.72rem; color:#64748b; text-transform:uppercase; letter-spacing:0.04em; padding:8px 12px; border-bottom:1px solid #334155; }
+    td { padding:11px 12px; border-bottom:1px solid #1e293b; font-size:0.88rem; vertical-align:middle; }
     tr:last-child td { border-bottom:none; }
     tr:hover td { background:#263347; }
-    .info-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin-bottom:20px; }
+    .info-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:12px; margin-bottom:20px; }
     .info-box { background:#0f172a; border-radius:8px; padding:14px; border:1px solid #334155; }
     .info-label { font-size:0.72rem; color:#64748b; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px; }
     .info-value { font-size:1.1rem; font-weight:600; }
-    .info-sub { font-size:0.75rem; color:#64748b; margin-top:2px; }
+    .info-sub { font-size:0.75rem; color:#64748b; margin-top:3px; }
     .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .explainer { margin-top:16px; padding:16px; background:#0f172a; border-radius:8px; border:1px solid #334155; font-size:0.83rem; color:#94a3b8; line-height:1.6; }
+    .explainer strong { color:#cbd5e1; }
+    .stage-box { padding:14px 16px; border-radius:8px; border:1px solid #1d4ed8; background:#0c1a2e; margin-bottom:20px; }
+    .stage-box .stage-title { font-size:0.95rem; font-weight:600; color:#60a5fa; margin-bottom:6px; }
+    .stage-box .stage-plain { font-size:0.83rem; color:#94a3b8; line-height:1.6; }
+    .stage-box .stage-next  { font-size:0.78rem; color:#64748b; margin-top:8px; border-top:1px solid #1d4ed8; padding-top:8px; }
+    .divider { height:1px; background:#334155; margin:20px 0; }
     @media(max-width:700px) { .two-col { grid-template-columns:1fr; } }
   </style>
 </head>
@@ -55,213 +65,276 @@
 <div class="header">
   <div>
     <h1>Trading Dashboard</h1>
-    <div class="updated"><span class="live-dot"></span>Last updated: Friday 10 Apr 2026 at 11:19 AM ET</div>
+    <div class="updated"><span class="live-dot"></span>Last updated: Friday 10 Apr 2026 at 11:24 AM ET</div>
   </div>
 </div>
 
-<!-- TOTAL SUMMARY -->
+<!-- TOTAL SUMMARY CARDS -->
 <div class="summary-grid">
   <div class="summary-card">
     <div class="label">Total Portfolio Value</div>
-    <div class="value">$99,957.43</div>
-    <div class="sub" style="color:#f87171">$-42.57 (-0.04%) all-time</div>
+    <div class="value">$99,984.27</div>
+    <div class="sub" style="color:#f87171">$-15.73 (-0.02%) all-time</div>
   </div>
   <div class="summary-card">
-    <div class="label">Main Account</div>
-    <div class="value">$49,972.45</div>
-    <div class="sub" style="color:#f87171">$-27.55 (-0.06%)</div>
+    <div class="label">Congress Account P&amp;L</div>
+    <div class="value" style="color:#f87171">$-12.71</div>
+    <div class="sub" style="color:#f87171">-0.03% vs $50k start &nbsp;·&nbsp; $20,063.62 cash free</div>
   </div>
   <div class="summary-card">
-    <div class="label">Wheel Account (TSLA)</div>
-    <div class="value">$49,984.98</div>
-    <div class="sub" style="color:#f87171">$-15.02 (-0.03%)</div>
+    <div class="label">Wheel Account P&amp;L</div>
+    <div class="value" style="color:#f87171">$-3.02</div>
+    <div class="sub" style="color:#f87171">-0.01% vs $50k start &nbsp;·&nbsp; $50,289.98 cash free</div>
   </div>
   <div class="summary-card">
-    <div class="label">Wheel Premiums Collected</div>
+    <div class="label">Rent Collected (Wheel)</div>
     <div class="value" style="color:#4ade80">$0.00</div>
-    <div class="sub">0 full cycles completed</div>
+    <div class="sub">0 full wheel cycles completed</div>
   </div>
 </div>
 
-<!-- STRATEGY 1: CONGRESS TRADES -->
+<!-- STRATEGY 1: CONGRESS -->
 <div class="section">
   <div class="section-header">
     <div>
-      <h2>Strategy 1 — Congress Copy Trading</h2>
-      <div style="font-size:0.82rem;color:#64748b">Following Ro Khanna &amp; Josh Gottheimer. Buys when they buy, trailing stop protection.</div>
+      <h2>Strategy 1 — Congress Copy Trading
+        <span class="sub"> &nbsp;·&nbsp; Copy trades filed by US politicians under the STOCK Act</span>
+      </h2>
     </div>
-    <span class="badge badge-green">Active</span>
+    <span class="badge badge-green">&#x25CF; Active — checking every 5 mins</span>
+  </div>
+
+  <!-- Politicians being followed -->
+  <h3>Politicians We Are Following</h3>
+  <div class="info-grid" style="margin-bottom:20px">
+    
+        <div class="info-box">
+          <div class="info-label">Following</div>
+          <div class="info-value" style="font-size:1rem">Ro Khanna</div>
+          <div class="info-sub" style="margin-top:6px">7 trades detected &nbsp;·&nbsp; Holding: BMO, GOOGL, WFC</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Following</div>
+          <div class="info-value" style="font-size:1rem">Josh Gottheimer</div>
+          <div class="info-sub" style="margin-top:6px">0 trades detected &nbsp;·&nbsp; Holding: None currently held</div>
+        </div>
+  </div>
+
+  <!-- P&L summary -->
+  <div class="info-grid" style="margin-bottom:20px">
+    <div class="info-box">
+      <div class="info-label">Unrealised P&amp;L on Open Positions</div>
+      <div class="info-value" style="color:#f87171">$-12.71</div>
+      <div class="info-sub">Across 4 open positions</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Cash Available for New Trades</div>
+      <div class="info-value">$20,063.62</div>
+      <div class="info-sub">Max 5 positions · ~$10,000 per trade</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Congress Signals Tracked</div>
+      <div class="info-value">7</div>
+      <div class="info-sub">Total disclosures detected since launch</div>
+    </div>
   </div>
 
   <div class="two-col">
     <div>
       <h3>Open Positions</h3>
       <table>
-        <thead><tr><th>Stock</th><th>Shares</th><th>Entry</th><th>Price</th><th>P&amp;L</th><th>%</th></tr></thead>
+        <thead><tr><th>Stock</th><th>Shares</th><th>Entry</th><th>Now</th><th>P&amp;L $</th><th>P&amp;L %</th></tr></thead>
         <tbody>
             <tr>
-              <td><strong>BMO</strong></td>
+              <td><strong>BMO</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
               <td>69 shares</td>
               <td>$143.94</td>
-              <td>$143.84</td>
-              <td style="color:#f87171">$-7.25</td>
-              <td style="color:#f87171">-0.1%</td>
+              <td>$144.08</td>
+              <td style="color:#4ade80">+$9.66</td>
+              <td style="color:#4ade80">+0.1%</td>
             </tr>
             <tr>
-              <td><strong>GOOGL</strong></td>
+              <td><strong>GOOGL</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
               <td>31 shares</td>
               <td>$319.66</td>
-              <td>$319.09</td>
-              <td style="color:#f87171">$-17.79</td>
+              <td>$319.03</td>
+              <td style="color:#f87171">$-19.67</td>
               <td style="color:#f87171">-0.2%</td>
             </tr>
             <tr>
-              <td><strong>RYCEY</strong></td>
+              <td><strong>RYCEY</strong><br><span style="font-size:0.75rem;color:#64748b"></span></td>
               <td>10 shares</td>
               <td>$17.32</td>
-              <td>$17.15</td>
-              <td style="color:#f87171">$-1.70</td>
-              <td style="color:#f87171">-1.0%</td>
+              <td>$17.19</td>
+              <td style="color:#f87171">$-1.30</td>
+              <td style="color:#f87171">-0.8%</td>
             </tr>
             <tr>
-              <td><strong>WFC</strong></td>
+              <td><strong>WFC</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
               <td>116 shares</td>
               <td>$85.53</td>
-              <td>$85.53</td>
-              <td style="color:#f87171">$-0.82</td>
+              <td>$85.52</td>
+              <td style="color:#f87171">$-1.40</td>
               <td style="color:#f87171">-0.0%</td>
             </tr></tbody>
       </table>
     </div>
     <div>
-      <h3>Pending Orders</h3>
+      <h3>Protective &amp; Ladder Orders</h3>
       <table>
-        <thead><tr><th>Stock</th><th>Side</th><th>Type</th><th>Qty</th></tr></thead>
+        <thead><tr><th>Stock</th><th>Side</th><th>Order Type</th><th>Qty</th><th>Purpose</th></tr></thead>
         <tbody>
             <tr>
               <td><strong>WFC</strong></td>
               <td style="color:#f87171">SELL</td>
-              <td>trailing_stop trail 10%</td>
+              <td>Trailing stop (10%)</td>
               <td>116 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Loss protection</td>
             </tr>
             <tr>
               <td><strong>GOOGL</strong></td>
               <td style="color:#f87171">SELL</td>
-              <td>trailing_stop trail 10%</td>
+              <td>Trailing stop (10%)</td>
               <td>31 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Loss protection</td>
             </tr>
             <tr>
               <td><strong>BMO</strong></td>
               <td style="color:#f87171">SELL</td>
-              <td>trailing_stop trail 10%</td>
+              <td>Trailing stop (10%)</td>
               <td>69 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Loss protection</td>
             </tr>
             <tr>
               <td><strong>WFC</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>limit @ $59.86</td>
+              <td>Ladder buy @ $59.86</td>
               <td>232 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 30%</td>
             </tr>
             <tr>
               <td><strong>WFC</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>limit @ $68.41</td>
+              <td>Ladder buy @ $68.41</td>
               <td>116 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 20%</td>
             </tr>
             <tr>
               <td><strong>GOOGL</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>limit @ $223.75</td>
+              <td>Ladder buy @ $223.75</td>
               <td>62 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 30%</td>
             </tr>
             <tr>
               <td><strong>GOOGL</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>limit @ $255.72</td>
+              <td>Ladder buy @ $255.72</td>
               <td>31 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 20%</td>
             </tr>
             <tr>
               <td><strong>BMO</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>limit @ $100.39</td>
+              <td>Ladder buy @ $100.39</td>
               <td>138 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 30%</td>
             </tr>
             <tr>
               <td><strong>BMO</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>limit @ $114.73</td>
+              <td>Ladder buy @ $114.73</td>
               <td>69 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 20%</td>
             </tr>
             <tr>
               <td><strong>RYCEY</strong></td>
               <td style="color:#f87171">SELL</td>
-              <td>trailing_stop trail 10%</td>
+              <td>Trailing stop (10%)</td>
               <td>10 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Loss protection</td>
             </tr>
             <tr>
               <td><strong>RYCEY</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>limit @ $10.84</td>
+              <td>Ladder buy @ $10.84</td>
               <td>20 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 37%</td>
             </tr>
             <tr>
               <td><strong>RYCEY</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>limit @ $12.38</td>
+              <td>Ladder buy @ $12.38</td>
               <td>10 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 29%</td>
             </tr></tbody>
       </table>
     </div>
   </div>
 
-  <div style="margin-top:20px">
-    <h3>Recent Congress Signals Tracked</h3>
-    <table>
-      <thead><tr><th>Ticker</th><th>Action</th><th>Date</th><th>Politician</th></tr></thead>
-      <tbody>
+  <div class="divider"></div>
+
+  <h3>Recent Congress Trade Signals</h3>
+  <table>
+    <thead><tr><th>Ticker</th><th>Politician</th><th>Their Action</th><th>Date Filed</th><th>Bot Action</th></tr></thead>
+    <tbody>
             <tr>
-              <td>WFC</td>
+              <td><strong>WFC</strong></td>
+              <td>Ro Khanna</td>
               <td style="color:#4ade80">BUY</td>
               <td>2026-03-11</td>
-              <td style="font-size:0.8em;color:#94a3b8">K000389</td>
+              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
-              <td>TMO</td>
+              <td><strong>TMO</strong></td>
+              <td>Ro Khanna</td>
               <td style="color:#4ade80">BUY</td>
               <td>2026-03-06</td>
-              <td style="font-size:0.8em;color:#94a3b8">K000389</td>
+              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
-              <td>ROK</td>
+              <td><strong>ROK</strong></td>
+              <td>Ro Khanna</td>
               <td style="color:#4ade80">BUY</td>
               <td>2026-03-06</td>
-              <td style="font-size:0.8em;color:#94a3b8">K000389</td>
+              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
-              <td>NTIOF</td>
+              <td><strong>NTIOF</strong></td>
+              <td>Ro Khanna</td>
               <td style="color:#4ade80">BUY</td>
               <td>2026-03-03</td>
-              <td style="font-size:0.8em;color:#94a3b8">K000389</td>
+              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
-              <td>GOOGL</td>
+              <td><strong>GOOGL</strong></td>
+              <td>Ro Khanna</td>
               <td style="color:#4ade80">BUY</td>
               <td>2026-03-06</td>
-              <td style="font-size:0.8em;color:#94a3b8">K000389</td>
+              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
-              <td>BMO</td>
+              <td><strong>BMO</strong></td>
+              <td>Ro Khanna</td>
               <td style="color:#4ade80">BUY</td>
               <td>2026-03-16</td>
-              <td style="font-size:0.8em;color:#94a3b8">K000389</td>
+              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
+            </tr>
+            <tr>
+              <td><strong>AVGO</strong></td>
+              <td>Ro Khanna</td>
+              <td style="color:#4ade80">BUY</td>
+              <td>2026-03-06</td>
+              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr></tbody>
-    </table>
-  </div>
+  </table>
 
-  <div style="margin-top:16px;padding:14px;background:#0f172a;border-radius:8px;border:1px solid #334155;font-size:0.82rem;color:#94a3b8">
-    <strong style="color:#cbd5e1">How it works:</strong> When a tracked congressman buys a stock, the bot automatically buys the same stock.
-    It uses a 10% trailing stop to protect gains, tightening to 5% once up 10%. Ladder buy orders are placed at -20% and -30% to average down if needed.
-    Cash available: <strong style="color:#e2e8f0">$20,063.62</strong>
+  <div class="explainer">
+    <strong>How this works in plain English:</strong> US politicians are required by law (the STOCK Act) to disclose any stock trades they make within 45 days.
+    This bot checks Capitol Trades every 5 minutes for new disclosures from Ro Khanna and Josh Gottheimer.
+    When either of them buys a stock, the bot automatically buys the same stock for ~$10,000.
+    A trailing stop-loss protects against big losses — it starts at 10% below the price and tightens to 5% once you're up 10%.
+    Ladder buy orders sit below the entry price to automatically buy more if the stock dips, lowering the average cost.
   </div>
 </div>
 
@@ -269,64 +342,73 @@
 <div class="section">
   <div class="section-header">
     <div>
-      <h2>Strategy 2 — TSLA Wheel Strategy (Options)</h2>
-      <div style="font-size:0.82rem;color:#64748b">Selling cash-secured puts and covered calls to collect premium income.</div>
+      <h2>Strategy 2 — TSLA Wheel Strategy
+        <span class="sub"> &nbsp;·&nbsp; Collecting regular income from Tesla options</span>
+      </h2>
     </div>
-    <span class="badge badge-blue">Selling Puts (Stage 1)</span>
+    <span class="badge badge-blue">&#x25CF; Active — checking every 15 mins</span>
   </div>
 
+  <!-- Current stage plain English box -->
+  <div class="stage-box">
+    <div class="stage-title">Stage 1 — Collecting Rent (Selling Puts)</div>
+    <div class="stage-plain">We are selling put options on TSLA — essentially agreeing to buy 100 shares at a set price if the stock falls to that level. In return, we get paid a premium upfront. If TSLA stays above that price, the option expires and we keep the money and do it again.</div>
+    <div class="stage-next">&#x27A1; Next: If TSLA drops to our strike price and we get assigned, we'll own 100 shares and move to Stage 2.</div>
+  </div>
+
+  <!-- Key stats -->
   <div class="info-grid">
     <div class="info-box">
-      <div class="info-label">Current Stage</div>
-      <div class="info-value">Selling Puts (Stage 1)</div>
-      <div class="info-sub">Looking for next put to sell</div>
+      <div class="info-label">Total "Rent" Collected</div>
+      <div class="info-value" style="color:#4ade80">$0.00</div>
+      <div class="info-sub">Option premiums received to date</div>
     </div>
     <div class="info-box">
-      <div class="info-label">Total Premium Income</div>
-      <div class="info-value" style="color:#4ade80">$0.00</div>
-      <div class="info-sub">Collected across 0 cycles</div>
+      <div class="info-label">Complete Cycles Done</div>
+      <div class="info-value">0</div>
+      <div class="info-sub">A cycle = put assigned + call called away</div>
     </div>
     <div class="info-box">
       <div class="info-label">Cash Available</div>
       <div class="info-value">$50,289.98</div>
-      <div class="info-sub">For cash-securing puts</div>
+      <div class="info-sub">Held in reserve to cover option obligations</div>
     </div>
     
     
-        <div class="info-box">
-          <div class="info-label">Open Contract</div>
-          <div class="info-value">PUT — 6cf36515-b349-4c…</div>
-          <div class="info-sub">Premium collected: Pending fill</div>
+        <div class="info-box" style="grid-column: span 2">
+          <div class="info-label">Active Option Contract</div>
+          <div class="info-value" style="font-size:0.95rem">Put (agreed to buy TSLA at a set price)</div>
+          <div class="info-sub" style="margin-top:6px">Premium received: <strong style="color:#4ade80">Awaiting confirmation</strong> &nbsp;·&nbsp; Contract ID: 6cf36515-b349-4c41-b…</div>
         </div>
   </div>
 
-  <div>
-    <h3>Positions &amp; Options</h3>
-    <table>
-      <thead><tr><th>Symbol</th><th>Qty</th><th>Entry</th><th>Current</th><th>P&amp;L</th></tr></thead>
-      <tbody>
+  <h3>TSLA Positions &amp; Active Contracts</h3>
+  <table>
+    <thead><tr><th>Symbol / Contract</th><th>Quantity</th><th>Entry Price</th><th>Current Price</th><th>P&amp;L</th></tr></thead>
+    <tbody>
             <tr>
-              <td><strong style="font-size:0.85em">TSLA260424P00310000</strong></td>
-              <td>-1</td>
+              <td><strong style="font-size:0.8rem">TSLA260424P00310000</strong><br><span style="font-size:0.75rem;color:#64748b">Open option contract</span></td>
+              <td>-1 contract(s)</td>
               <td>$2.90</td>
-              <td>$3.05</td>
-              <td style="color:#f87171">$-15.00</td>
+              <td>$2.93</td>
+              <td style="color:#f87171">$-3.00</td>
             </tr></tbody>
-    </table>
-  </div>
+  </table>
 
-  <div style="margin-top:16px;padding:14px;background:#0f172a;border-radius:8px;border:1px solid #334155;font-size:0.82rem;color:#94a3b8">
-    <strong style="color:#cbd5e1">How it works:</strong>
-    <strong>Stage 1</strong> — Sell a put option 10% below TSLA price. If it expires worthless, keep the premium and repeat.
-    If the stock drops and we get assigned (forced to buy), move to Stage 2.
-    <strong>Stage 2</strong> — Sell a call option 10% above our buy price. If TSLA rises above that, the shares get called away at a profit.
-    If the call expires worthless, keep the premium and sell another call.
-    The strategy collects income either way. Closes early if 50% of max profit is reached.
+  <div class="explainer" style="margin-top:16px">
+    <strong>Think of it like collecting rent:</strong>
+    Instead of just buying and holding Tesla shares, this strategy makes money whether the stock goes up, down, or sideways.<br><br>
+    <strong>Stage 1 (Selling Puts) —</strong> We say to the market: "I'll agree to buy 100 Tesla shares at $310 — but only if you pay me a fee upfront."
+    The market pays us that fee (the premium). If Tesla stays above $310, the agreement expires and we keep the money, then repeat.
+    If Tesla drops below that price, we get the shares — but we already got paid, so our real cost is lower.<br><br>
+    <strong>Stage 2 (Selling Calls) —</strong> Now we own Tesla shares. We say: "I'll sell my shares at a higher price — but pay me a fee to lock that in."
+    Again, we collect the fee. If Tesla rises above that price, we sell the shares at a profit. If it doesn't, we keep the fee and do it again.<br><br>
+    <strong>The result:</strong> We collect income every 2–4 weeks regardless of direction. The only real risk is if Tesla drops severely and stays down for a long time.
   </div>
 </div>
 
 <div style="text-align:center;color:#334155;font-size:0.75rem;padding:20px 0">
-  Paper trading account — all figures are simulated. Auto-refreshes every 15 minutes via GitHub Actions.
+  Paper trading — all figures are simulated &nbsp;·&nbsp; Auto-updated every 5–15 minutes via GitHub Actions
 </div>
 
 </body>

@@ -23,6 +23,8 @@
     .updated { font-size: 0.8rem; color: #64748b; }
     .live-dot { display:inline-block; width:8px; height:8px; background:#4ade80; border-radius:50%; margin-right:6px; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .header-meta { display:flex; gap:20px; align-items:center; flex-wrap:wrap; margin-top:6px; }
+    .market-status { font-size:0.82rem; font-weight:600; padding:3px 10px; border-radius:999px; border:1px solid; }
     .summary-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:28px; }
     .summary-card {
       background: #1e293b;
@@ -65,7 +67,10 @@
 <div class="header">
   <div>
     <h1>Trading Dashboard</h1>
-    <div class="updated"><span class="live-dot"></span>Last updated: Friday 10 Apr 2026 at 11:24 AM ET</div>
+    <div class="header-meta">
+      <div class="updated"><span class="live-dot"></span>Last updated: Friday 10 Apr 2026 at 11:33 AM ET &nbsp;·&nbsp; 15:33 UTC</div>
+      <div class="market-status" style="color:#4ade80;border-color:#4ade80;background:#4ade8018">&#x25CF; US Market: OPEN</div>
+    </div>
   </div>
 </div>
 
@@ -73,18 +78,18 @@
 <div class="summary-grid">
   <div class="summary-card">
     <div class="label">Total Portfolio Value</div>
-    <div class="value">$99,984.27</div>
-    <div class="sub" style="color:#f87171">$-15.73 (-0.02%) all-time</div>
+    <div class="value">$99,930.22</div>
+    <div class="sub" style="color:#f87171">$-69.78 (-0.07%) all-time</div>
   </div>
   <div class="summary-card">
     <div class="label">Congress Account P&amp;L</div>
-    <div class="value" style="color:#f87171">$-12.71</div>
-    <div class="sub" style="color:#f87171">-0.03% vs $50k start &nbsp;·&nbsp; $20,063.62 cash free</div>
+    <div class="value" style="color:#f87171">$-44.76</div>
+    <div class="sub" style="color:#f87171">-0.09% vs $50k start &nbsp;·&nbsp; $20,063.62 cash free</div>
   </div>
   <div class="summary-card">
     <div class="label">Wheel Account P&amp;L</div>
-    <div class="value" style="color:#f87171">$-3.02</div>
-    <div class="sub" style="color:#f87171">-0.01% vs $50k start &nbsp;·&nbsp; $50,289.98 cash free</div>
+    <div class="value" style="color:#f87171">$-25.02</div>
+    <div class="sub" style="color:#f87171">-0.05% vs $50k start &nbsp;·&nbsp; $50,289.98 cash free</div>
   </div>
   <div class="summary-card">
     <div class="label">Rent Collected (Wheel)</div>
@@ -111,7 +116,7 @@
         <div class="info-box">
           <div class="info-label">Following</div>
           <div class="info-value" style="font-size:1rem">Ro Khanna</div>
-          <div class="info-sub" style="margin-top:6px">7 trades detected &nbsp;·&nbsp; Holding: BMO, GOOGL, WFC</div>
+          <div class="info-sub" style="margin-top:6px">8 trades detected &nbsp;·&nbsp; Holding: BMO, GOOGL, WFC</div>
         </div>
         <div class="info-box">
           <div class="info-label">Following</div>
@@ -124,7 +129,7 @@
   <div class="info-grid" style="margin-bottom:20px">
     <div class="info-box">
       <div class="info-label">Unrealised P&amp;L on Open Positions</div>
-      <div class="info-value" style="color:#f87171">$-12.71</div>
+      <div class="info-value" style="color:#f87171">$-44.76</div>
       <div class="info-sub">Across 4 open positions</div>
     </div>
     <div class="info-box">
@@ -134,7 +139,7 @@
     </div>
     <div class="info-box">
       <div class="info-label">Congress Signals Tracked</div>
-      <div class="info-value">7</div>
+      <div class="info-value">8</div>
       <div class="info-sub">Total disclosures detected since launch</div>
     </div>
   </div>
@@ -149,32 +154,32 @@
               <td><strong>BMO</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
               <td>69 shares</td>
               <td>$143.94</td>
-              <td>$144.08</td>
-              <td style="color:#4ade80">+$9.66</td>
-              <td style="color:#4ade80">+0.1%</td>
+              <td>$143.95</td>
+              <td style="color:#4ade80">+$0.69</td>
+              <td style="color:#4ade80">+0.0%</td>
             </tr>
             <tr>
               <td><strong>GOOGL</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
               <td>31 shares</td>
               <td>$319.66</td>
-              <td>$319.03</td>
-              <td style="color:#f87171">$-19.67</td>
-              <td style="color:#f87171">-0.2%</td>
+              <td>$318.34</td>
+              <td style="color:#f87171">$-41.06</td>
+              <td style="color:#f87171">-0.4%</td>
             </tr>
             <tr>
               <td><strong>RYCEY</strong><br><span style="font-size:0.75rem;color:#64748b"></span></td>
               <td>10 shares</td>
               <td>$17.32</td>
-              <td>$17.19</td>
-              <td style="color:#f87171">$-1.30</td>
-              <td style="color:#f87171">-0.8%</td>
+              <td>$17.12</td>
+              <td style="color:#f87171">$-1.95</td>
+              <td style="color:#f87171">-1.1%</td>
             </tr>
             <tr>
               <td><strong>WFC</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
               <td>116 shares</td>
               <td>$85.53</td>
-              <td>$85.52</td>
-              <td style="color:#f87171">$-1.40</td>
+              <td>$85.51</td>
+              <td style="color:#f87171">$-2.44</td>
               <td style="color:#f87171">-0.0%</td>
             </tr></tbody>
       </table>
@@ -300,6 +305,13 @@
               <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
+              <td><strong>RCI</strong></td>
+              <td>Ro Khanna</td>
+              <td style="color:#4ade80">BUY</td>
+              <td>2026-03-24</td>
+              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
+            </tr>
+            <tr>
               <td><strong>NTIOF</strong></td>
               <td>Ro Khanna</td>
               <td style="color:#4ade80">BUY</td>
@@ -390,8 +402,8 @@
               <td><strong style="font-size:0.8rem">TSLA260424P00310000</strong><br><span style="font-size:0.75rem;color:#64748b">Open option contract</span></td>
               <td>-1 contract(s)</td>
               <td>$2.90</td>
-              <td>$2.93</td>
-              <td style="color:#f87171">$-3.00</td>
+              <td>$3.15</td>
+              <td style="color:#f87171">$-25.00</td>
             </tr></tbody>
   </table>
 

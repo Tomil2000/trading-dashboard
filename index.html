@@ -62,10 +62,15 @@
     @media(max-width:700px) { .two-col { grid-template-columns:1fr; } }
   </style>
   <script>
-    // Auto-reload every 5 minutes, bypassing cache
+    // Reload every 5 minutes with cache-busting URL to bypass GitHub Pages CDN
     setTimeout(function() {
-      location.reload(true);
+      location.href = location.pathname + '?t=' + Date.now();
     }, 5 * 60 * 1000);
+
+    // Also strip the ?t= param on load so the URL stays clean
+    if (location.search) {
+      history.replaceState(null, '', location.pathname);
+    }
   </script>
 </head>
 <body>
@@ -74,7 +79,7 @@
   <div>
     <h1>Trading Dashboard</h1>
     <div class="header-meta">
-      <div class="updated"><span class="live-dot"></span>Last updated: 17:29 BST &nbsp;·&nbsp; Friday 10 Apr 2026 at 12:29 PM ET</div>
+      <div class="updated"><span class="live-dot"></span>Last updated: 17:49 BST &nbsp;·&nbsp; Friday 10 Apr 2026 at 12:49 PM ET</div>
       <div class="market-status" style="color:#4ade80;border-color:#4ade80;background:#4ade8018">&#x25CF; US Market: OPEN</div>
     </div>
   </div>
@@ -84,18 +89,18 @@
 <div class="summary-grid">
   <div class="summary-card">
     <div class="label">Total Portfolio Value</div>
-    <div class="value">$99,893.58</div>
-    <div class="sub" style="color:#f87171">$-106.42 (-0.11%) all-time</div>
+    <div class="value">$99,852.94</div>
+    <div class="sub" style="color:#f87171">$-147.06 (-0.15%) all-time</div>
   </div>
   <div class="summary-card">
     <div class="label">Congress Account P&amp;L</div>
-    <div class="value" style="color:#f87171">$-66.40</div>
-    <div class="sub" style="color:#f87171">-0.13% vs $50k start &nbsp;·&nbsp; $20,063.62 cash free</div>
+    <div class="value" style="color:#f87171">$-87.04</div>
+    <div class="sub" style="color:#f87171">-0.17% vs $50k start &nbsp;·&nbsp; $20,547.75 cash free</div>
   </div>
   <div class="summary-card">
     <div class="label">Wheel Account P&amp;L</div>
-    <div class="value" style="color:#f87171">$-40.02</div>
-    <div class="sub" style="color:#f87171">-0.08% vs $50k start &nbsp;·&nbsp; $50,289.98 cash free</div>
+    <div class="value" style="color:#f87171">$-60.02</div>
+    <div class="sub" style="color:#f87171">-0.12% vs $50k start &nbsp;·&nbsp; $50,289.98 cash free</div>
   </div>
   <div class="summary-card">
     <div class="label">Rent Collected (Wheel)</div>
@@ -126,12 +131,17 @@
     
         <div class="info-box">
           <div class="info-label">Following</div>
-          <div class="info-value" style="font-size:1rem">Ro Khanna</div>
-          <div class="info-sub" style="margin-top:6px">10 trades detected &nbsp;·&nbsp; Holding: BMO, GOOGL, WFC</div>
+          <div class="info-value" style="font-size:1rem">Michael McCaul</div>
+          <div class="info-sub" style="margin-top:6px">5 trades detected &nbsp;·&nbsp; Holding: AAPL, GOOGL, MSFT</div>
         </div>
         <div class="info-box">
           <div class="info-label">Following</div>
-          <div class="info-value" style="font-size:1rem">Josh Gottheimer</div>
+          <div class="info-value" style="font-size:1rem">Marjorie Taylor Greene</div>
+          <div class="info-sub" style="margin-top:6px">0 trades detected &nbsp;·&nbsp; Holding: None currently held</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Following</div>
+          <div class="info-value" style="font-size:1rem">Tommy Tuberville</div>
           <div class="info-sub" style="margin-top:6px">0 trades detected &nbsp;·&nbsp; Holding: None currently held</div>
         </div>
   </div>
@@ -140,17 +150,17 @@
   <div class="info-grid" style="margin-bottom:20px">
     <div class="info-box">
       <div class="info-label">Unrealised P&amp;L on Open Positions</div>
-      <div class="info-value" style="color:#f87171">$-66.41</div>
-      <div class="info-sub">Across 4 open positions</div>
+      <div class="info-value" style="color:#f87171">$-1.00</div>
+      <div class="info-sub">Across 3 open positions</div>
     </div>
     <div class="info-box">
       <div class="info-label">Cash Available for New Trades</div>
-      <div class="info-value">$20,063.62</div>
+      <div class="info-value">$20,547.75</div>
       <div class="info-sub">Max 5 positions · ~$10,000 per trade</div>
     </div>
     <div class="info-box">
       <div class="info-label">Congress Signals Tracked</div>
-      <div class="info-value">10</div>
+      <div class="info-value">5</div>
       <div class="info-sub">Total disclosures detected since launch</div>
     </div>
   </div>
@@ -162,36 +172,28 @@
         <thead><tr><th>Stock</th><th>Shares</th><th>Entry</th><th>Now</th><th>P&amp;L $</th><th>P&amp;L %</th></tr></thead>
         <tbody>
             <tr>
-              <td><strong>BMO</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
-              <td>69 shares</td>
-              <td>$143.94</td>
-              <td>$144.12</td>
-              <td style="color:#4ade80">+$12.77</td>
-              <td style="color:#4ade80">+0.1%</td>
+              <td><strong>AAPL</strong><br><span style="font-size:0.75rem;color:#64748b">Michael McCaul</span></td>
+              <td>38 shares</td>
+              <td>$260.27</td>
+              <td>$260.27</td>
+              <td style="color:#4ade80">+$0.17</td>
+              <td style="color:#4ade80">+0.0%</td>
             </tr>
             <tr>
-              <td><strong>GOOGL</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
+              <td><strong>GOOGL</strong><br><span style="font-size:0.75rem;color:#64748b">Michael McCaul</span></td>
               <td>31 shares</td>
-              <td>$319.66</td>
-              <td>$317.37</td>
-              <td style="color:#f87171">$-71.13</td>
-              <td style="color:#f87171">-0.7%</td>
+              <td>$317.08</td>
+              <td>$317.04</td>
+              <td style="color:#f87171">$-1.17</td>
+              <td style="color:#f87171">-0.0%</td>
             </tr>
             <tr>
-              <td><strong>RYCEY</strong><br><span style="font-size:0.75rem;color:#64748b"></span></td>
-              <td>10 shares</td>
-              <td>$17.32</td>
-              <td>$17.12</td>
-              <td style="color:#f87171">$-2.00</td>
-              <td style="color:#f87171">-1.2%</td>
-            </tr>
-            <tr>
-              <td><strong>WFC</strong><br><span style="font-size:0.75rem;color:#64748b">Ro Khanna</span></td>
-              <td>116 shares</td>
-              <td>$85.53</td>
-              <td>$85.48</td>
-              <td style="color:#f87171">$-6.04</td>
-              <td style="color:#f87171">-0.1%</td>
+              <td><strong>MSFT</strong><br><span style="font-size:0.75rem;color:#64748b">Michael McCaul</span></td>
+              <td>26 shares</td>
+              <td>$371.02</td>
+              <td>$371.02</td>
+              <td style="color:#4ade80">+$0.00</td>
+              <td style="color:#4ade80">+0.0%</td>
             </tr></tbody>
       </table>
     </div>
@@ -201,10 +203,10 @@
         <thead><tr><th>Stock</th><th>Side</th><th>Order Type</th><th>Qty</th><th>Purpose</th></tr></thead>
         <tbody>
             <tr>
-              <td><strong>WFC</strong></td>
+              <td><strong>MSFT</strong></td>
               <td style="color:#f87171">SELL</td>
               <td>Trailing stop (10%)</td>
-              <td>116 shares</td>
+              <td>26 shares</td>
               <td style="color:#94a3b8;font-size:0.8rem">Loss protection</td>
             </tr>
             <tr>
@@ -215,74 +217,53 @@
               <td style="color:#94a3b8;font-size:0.8rem">Loss protection</td>
             </tr>
             <tr>
-              <td><strong>BMO</strong></td>
+              <td><strong>AAPL</strong></td>
               <td style="color:#f87171">SELL</td>
               <td>Trailing stop (10%)</td>
-              <td>69 shares</td>
+              <td>36 shares</td>
               <td style="color:#94a3b8;font-size:0.8rem">Loss protection</td>
-            </tr>
-            <tr>
-              <td><strong>WFC</strong></td>
-              <td style="color:#4ade80">BUY</td>
-              <td>Ladder buy @ $59.86</td>
-              <td>232 shares</td>
-              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 30%</td>
-            </tr>
-            <tr>
-              <td><strong>WFC</strong></td>
-              <td style="color:#4ade80">BUY</td>
-              <td>Ladder buy @ $68.41</td>
-              <td>116 shares</td>
-              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 20%</td>
             </tr>
             <tr>
               <td><strong>GOOGL</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>Ladder buy @ $223.75</td>
+              <td>Ladder buy @ $221.93</td>
               <td>62 shares</td>
               <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 30%</td>
             </tr>
             <tr>
               <td><strong>GOOGL</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>Ladder buy @ $255.72</td>
+              <td>Ladder buy @ $253.63</td>
               <td>31 shares</td>
               <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 20%</td>
             </tr>
             <tr>
-              <td><strong>BMO</strong></td>
+              <td><strong>AAPL</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>Ladder buy @ $100.39</td>
-              <td>138 shares</td>
+              <td>Ladder buy @ $182.18</td>
+              <td>76 shares</td>
               <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 30%</td>
             </tr>
             <tr>
-              <td><strong>BMO</strong></td>
+              <td><strong>AAPL</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>Ladder buy @ $114.73</td>
-              <td>69 shares</td>
+              <td>Ladder buy @ $208.21</td>
+              <td>38 shares</td>
               <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 20%</td>
             </tr>
             <tr>
-              <td><strong>RYCEY</strong></td>
-              <td style="color:#f87171">SELL</td>
-              <td>Trailing stop (10%)</td>
-              <td>10 shares</td>
-              <td style="color:#94a3b8;font-size:0.8rem">Loss protection</td>
+              <td><strong>MSFT</strong></td>
+              <td style="color:#4ade80">BUY</td>
+              <td>Ladder buy @ $259.70</td>
+              <td>52 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 30%</td>
             </tr>
             <tr>
-              <td><strong>RYCEY</strong></td>
+              <td><strong>MSFT</strong></td>
               <td style="color:#4ade80">BUY</td>
-              <td>Ladder buy @ $10.84</td>
-              <td>20 shares</td>
-              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 37%</td>
-            </tr>
-            <tr>
-              <td><strong>RYCEY</strong></td>
-              <td style="color:#4ade80">BUY</td>
-              <td>Ladder buy @ $12.38</td>
-              <td>10 shares</td>
-              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 29%</td>
+              <td>Ladder buy @ $296.80</td>
+              <td>26 shares</td>
+              <td style="color:#94a3b8;font-size:0.8rem">Buy more if down 20%</td>
             </tr></tbody>
       </table>
     </div>
@@ -295,73 +276,38 @@
     <thead><tr><th>Ticker</th><th>Politician</th><th>Their Action</th><th>Date Filed</th><th>Bot Action</th></tr></thead>
     <tbody>
             <tr>
-              <td><strong>WFC</strong></td>
-              <td>Ro Khanna</td>
+              <td><strong>MSFT</strong></td>
+              <td>Michael McCaul</td>
               <td style="color:#4ade80">BUY</td>
-              <td>2026-03-11</td>
+              <td>2026-02-11</td>
               <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
-              <td><strong>TMO</strong></td>
-              <td>Ro Khanna</td>
+              <td><strong>JPM</strong></td>
+              <td>Michael McCaul</td>
               <td style="color:#4ade80">BUY</td>
-              <td>2026-03-06</td>
-              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
-            </tr>
-            <tr>
-              <td><strong>ROK</strong></td>
-              <td>Ro Khanna</td>
-              <td style="color:#4ade80">BUY</td>
-              <td>2026-03-06</td>
-              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
-            </tr>
-            <tr>
-              <td><strong>RCI</strong></td>
-              <td>Ro Khanna</td>
-              <td style="color:#4ade80">BUY</td>
-              <td>2026-03-24</td>
-              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
-            </tr>
-            <tr>
-              <td><strong>NTIOF</strong></td>
-              <td>Ro Khanna</td>
-              <td style="color:#4ade80">BUY</td>
-              <td>2026-03-03</td>
-              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
-            </tr>
-            <tr>
-              <td><strong>KEY</strong></td>
-              <td>Ro Khanna</td>
-              <td style="color:#4ade80">BUY</td>
-              <td>2026-03-12</td>
+              <td>2026-02-11</td>
               <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
               <td><strong>GOOGL</strong></td>
-              <td>Ro Khanna</td>
+              <td>Michael McCaul</td>
               <td style="color:#4ade80">BUY</td>
-              <td>2026-03-06</td>
+              <td>2026-02-11</td>
               <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
-              <td><strong>FHN</strong></td>
-              <td>Ro Khanna</td>
+              <td><strong>AMZN</strong></td>
+              <td>Michael McCaul</td>
               <td style="color:#4ade80">BUY</td>
-              <td>2026-03-17</td>
+              <td>2026-02-11</td>
               <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr>
             <tr>
-              <td><strong>BMO</strong></td>
-              <td>Ro Khanna</td>
+              <td><strong>AAPL</strong></td>
+              <td>Michael McCaul</td>
               <td style="color:#4ade80">BUY</td>
-              <td>2026-03-16</td>
-              <td style="color:#4ade80;font-size:0.82rem">Yes</td>
-            </tr>
-            <tr>
-              <td><strong>AVGO</strong></td>
-              <td>Ro Khanna</td>
-              <td style="color:#4ade80">BUY</td>
-              <td>2026-03-06</td>
+              <td>2026-02-11</td>
               <td style="color:#4ade80;font-size:0.82rem">Yes</td>
             </tr></tbody>
   </table>
@@ -427,8 +373,8 @@
               <td><strong style="font-size:0.8rem">TSLA260424P00310000</strong><br><span style="font-size:0.75rem;color:#64748b">Open option contract</span></td>
               <td>-1 contract(s)</td>
               <td>$2.90</td>
-              <td>$3.30</td>
-              <td style="color:#f87171">$-40.00</td>
+              <td>$3.50</td>
+              <td style="color:#f87171">$-60.00</td>
             </tr></tbody>
   </table>
 
